@@ -6,27 +6,26 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:04:18 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:04:35 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/03/29 16:54:25 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nelem, size_t elsize)
+void	*ft_calloc(size_t count, size_t size)
 {
-	void	*arr;
-	char	*d_arr;
+	char	*spc;
 	size_t	i;
 
 	i = 0;
-	if (nelem <= 0 || elsize <= 0)
-		return ((void *) 0);
-	arr = malloc(nelem * elsize);
-	d_arr = (char *) arr;
-	while (i < elsize)
+	if (count <= 0 || size <= 0)
+		return (NULL);
+	spc = malloc(count * size);
+	if (!spc)
+		return (NULL);
+	while (i < count)
 	{
-		d_arr[i] = 0;
-		i++;
+		spc[i++] = 0;
 	}
-	return (arr);
+	return (spc);
 }

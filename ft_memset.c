@@ -6,22 +6,22 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:07:07 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:07:07 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/03/29 16:15:05 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *str, int c, size_t len)
 {
-	char	*ret;
+	char	*res;
 
-	ret = (char *) s;
-	while (n)
+	res = (char *) str;
+	while (len)
 	{
-		*ret = c;
-		ret++;
-		n--;
+		*res = c;
+		res++;
+		len--;
 	}
-	return (s);
+	return (str);
 }

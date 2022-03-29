@@ -6,11 +6,11 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:05:38 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:05:39 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/03/29 15:21:47 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	return (c >= 32 && c <= 255 && c != 127);
+	return (c >= 32 && c <= 126);
 }

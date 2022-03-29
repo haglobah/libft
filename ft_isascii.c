@@ -6,11 +6,11 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:05:14 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:05:17 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/03/29 15:26:16 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isascii(int c)
 {
-	return (c >= 0 && c <= 255);
+	return (c >= 0 && c <= 127);
 }

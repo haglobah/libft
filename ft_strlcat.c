@@ -6,43 +6,31 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:09:19 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:09:19 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:12:10 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
-static int	ft_str(char *str)
-{
-	int	counter;
-
-	counter = 0;
-	while (str[counter])
-		counter++;
-	return (counter);
-}
-
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dsize)
 {
 	size_t	i;
-	int		len_dest;
+	size_t	dlen;
+	size_t	slen;
 
+	dlen = ft_strlen(dst);
+	if (dlen > dsize)
+		dlen = dsize;
+	slen = ft_strlen(src);
 	i = 0;
-	if (size < 0)
+	if (dsize > 0 && dlen < (dsize - 1))
 	{
-		len_dest = ft_str(dest);
-		while (*dest)
-			dest++;
-		while (i < (size - len_dest - 1) && src[i])
+		while (src[i] && (i + dlen) < dsize - 1)
 		{
-			dest[i] = src[i];
+			dst[i + dlen] = src[i];
 			i++;
 		}
-		dest[i] = '\0';
+		dst[dlen + i] = '\0';
 	}
-	while (src[i])
-		i++;
-	return (i);
+	return (slen + dlen);
 }
