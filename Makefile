@@ -28,7 +28,7 @@ $(NAME): objects
 
 objects: $(SRC)
 	$(CC) $(CFLAGS) -c $(SRC)
-	
+
 #%.o: $(SRC)
 #	$(CC) $(CFLAGS) -c $^
 
@@ -39,3 +39,7 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+norm:
+	norminette *.c *.h
+
