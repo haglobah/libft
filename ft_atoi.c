@@ -10,71 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	pow_of_a(int base, int exp)
-{
-	int		result;
+#include "libft.h"
 
-	result = 1;
-	while (exp > 0)
-	{
-		result *= base;
-		exp -= 1;
-	}
-	return (result);
+static void	ft_skipwhite(const char *str, int *i)
+{
+	if (str == NULL || i == NULL)
+		return ;
+	while ((str[*i] == ' ' || str[*i] == '\t' || str[*i] == '\n')
+	|| (str[*i] == '\r' || str[*i] == '\v' || str[*i] == '\f'))
+		(*i)++;
 }
 
-static int	get_log_10(const char *nptr)
+int	ft_atoi(const char *a)
 {
-	int	counter;
+	long	i;
+	long	nbr;
+	int		isneg;
 
-	counter = 0;
-	while (*nptr)
+	i = 0;
+	nbr = 0;
+	isneg = 0;
+	ft_skipwhite(a, &i);
+	if (a[i] != '\0' && a[i] == '-')
 	{
-		if (*nptr < '0' || *nptr > '9')
-			break ;
-		nptr++;
-		counter++;
+		isneg = 1;
+		i++;
 	}
-	return (counter - 1);
-}
-
-int	ft_atoi(const char *nptr)
-{
-	int	result;
-	int	white_space;
-	int	hit_sign;
-	int	hit_num;
-	int	minus;
-	int	log_10;
-
-	result = 0;
-	white_space = 1;
-	hit_sign = 0;
-	hit_num = 0;
-	minus = 0;
-	while (*nptr)
-	{
-		while (white_space && (*nptr == '\v' || *nptr == '\t' || *nptr == '\r'
-				|| *nptr == '\n' || *nptr == '\f' || *nptr == ' '))
-			nptr++;
-		white_space = 0;
-		if (*nptr < '0' || *nptr > '9')
-		{
-			if (!hit_sign && (*nptr == '+' || *nptr == '-'))
-			{
-				if (*nptr == '-')
-					minus = 1;
-				hit_sign = 1;
-				nptr++;
-				continue ;
-			}
-			break ;
-		}
-		log_10 = get_log_10(nptr);
-		result += ((*nptr) - '0') * pow_of_a(10, log_10);
-		nptr++;
-	}
-	if (minus)
-		result = result * (-1);
-	return (result);
+	else if (a[i] == '+')
+		i++;
+	while (a[i] != '\0' && ft_isdigit(a[i]))
+		nbr = (nbr * 10) + (a[i++] - '0');
+	if (isneg)
+		return (-nbr);
+	return (nbr);
 }

@@ -17,10 +17,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char	*sub;
 	size_t	i;
 
-	sub = (char *) malloc(sizeof(char) * len + 1);
+	if (start > ft_strlen(s))
+		return (ft_strdup(""));
+	sub = (char *) malloc(sizeof(char) * (len + 1));
+	if (!sub)
+		return (NULL);
 	i = 0;
-	if (start < 0 || len < 0 || !s)
-		return ((void *) 0);
 	while (i < len && s[i + start])
 	{
 		sub[i] = s[i + start];

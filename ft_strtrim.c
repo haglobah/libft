@@ -12,55 +12,53 @@
 
 #include "libft.h"
 
-static int	is_in_set(char const *str, char c)
+static int	is_in(int c, char *set)
 {
-	while (*str)
+	while (*set)
 	{
-		if (c == *str)
+		if (c == *set)
 			return (1);
-		str++;
+		set++;
 	}
 	return (0);
 }
 
-static char	*trim(char const *s1, char const *set, int len, char *str_trim)
+static char	*trim_st(char *to_trim, char *tr_set)
 {
-	int		i;
-	int		j;
-	int		start;
-	int		end;
-	int		k;
+	int	i;
 
 	i = 0;
-	j = 0;
-	end = 1;
-	start = 1;
-	k = 0;
-	while (i < len - j)
-	{
-		while (start && is_in_set(set, s1[i]))
-			i++;
-		start = 0;
-		str_trim[k] = s1[i];
-		while (end && is_in_set(set, s1[len - j - 1]))
-			j++;
-		end = 0;
+	while (to_trim[i] && is_in(to_trim[i], tr_set))
 		i++;
-		k++;
-	}
-	str_trim[k] = '\0';
-	return (str_trim);
+	return (to_trim + i);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+static char	*trim_end(char *to_trim, char *tr_set)
 {
-	char	*str_trim;
-	int		len;
+	int	i;
 
-	len = ft_strlen(s1);
-	if (!s1 || !set)
-		return ((void *) 0);
-	str_trim = (char *) malloc(sizeof(char) * len + 1);
-	str_trim = trim(s1, set, len, str_trim);
-	return (str_trim);
+	i = 0;
+	while (to_trim[i])
+		i++;
+	while (is_in(to_trim[--i], tr_set))
+		;
+	return (to_trim + i + 1);
+}
+
+char	*ft_strtrim(char const *to_trim, char const *tr_set)
+{
+	char	*cpy;
+	char	*st;
+	char	*end;
+	char	*res;
+
+	st = trim_start((char *) to_trim, tr_s);
+	end = trim_end(st, tr_s);
+	cpy = (char *) malloc(sizeof(char) * (end - st + 1));
+	if (!cpy)
+		return (NULL);
+	res = cpy;
+	while (st < end)
+		*cpy++ = *st++;
+	return (res);
 }
