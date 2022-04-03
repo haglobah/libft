@@ -44,6 +44,7 @@ static int	make_split(int st, int end, char *str, char **strlist)
 		i++;
 		st++;
 	}
+	(*strlist)[i] = '\0';
 	return (1);
 }
 
@@ -58,6 +59,7 @@ static void	*free_all(char **str, int spl_count)
 		i++;
 	}
 	free(str);
+	return (NULL);
 }
 
 char	**ft_split(char const *s, char c)

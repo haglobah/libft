@@ -11,51 +11,59 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-static int	get_strnum_len(int n)
+static int	numlen(int n)
 {
-	int	counter;
+	int	numlen;
 
-	counter = 0;
-	if (!n)
-		return (1);
-	while (n > 0)
+	numlen = 0;
+	while(n)
 	{
-		counter++;
 		n /= 10;
+		numlen++;
 	}
-	return (counter);
+	return (numlen);
+}
+
+static int	pow(int n, int exp)
+{
+	int	res;
+
+	if (pow == 0)
+		return (1);
+	res = nbr;
+	while (pow > 1)
+	{
+		res *= nbr;
+		pow--;
+	}
+	return (res);
 }
 
 char	*ft_itoa(int n)
 {
-	char	*str;
-	int		remainder;
+	long	num;
+	char	*s;
+	int		div;
 	int		i;
-	int		len;
-	int		minus;
 
-	minus = 0;
-	if (n < 0)
+	i = 0;
+	num = n;
+	s = malloc(sizeof(char) * (numlen(num) + 1));
+	if (!s)
+		return (NULL);
+	if (num < 0)
 	{
-		minus = 1;
-		n *= -1;
+		s[i++] = '-';
+		num = -num;
 	}
-	len = get_strnum_len(n);
-	if (minus)
-		len++;
-	str = (char *) malloc(sizeof(char) * len + 1);
-	i = len - 1;
-	str[len] = '\0';
-	while (i >= 0)
+	div = ft_power(10, numlen(num) - 1);
+	while (div > 0)
 	{
-		remainder = n % 10;
-		n = (n - remainder) / 10;
-		str[i] = remainder + '0';
-		if (minus && i == 0)
-			str[i] = '-';
-		i--;
+		s[i++] = num / div + '0';
+		num = num % div;
+		div = div / 10;
 	}
-	return (str);
+	s[i] = '\0';
+	return (s);
 }
