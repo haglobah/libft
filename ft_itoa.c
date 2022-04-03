@@ -25,17 +25,17 @@ static int	numlen(int n)
 	return (numlen);
 }
 
-static int	pow(int n, int exp)
+static int	ft_pow(int n, int exp)
 {
 	int	res;
 
-	if (pow == 0)
+	if (exp == 0)
 		return (1);
-	res = nbr;
-	while (pow > 1)
+	res = n;
+	while (exp > 1)
 	{
-		res *= nbr;
-		pow--;
+		res *= n;
+		exp--;
 	}
 	return (res);
 }
@@ -57,7 +57,7 @@ char	*ft_itoa(int n)
 		s[i++] = '-';
 		num = -num;
 	}
-	div = ft_power(10, numlen(num) - 1);
+	div = ft_pow(10, numlen(num) - 1);
 	while (div > 0)
 	{
 		s[i++] = num / div + '0';

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static void	ft_skipwhite(const char *str, int *i)
+static void	ft_skipwhite(const char *str, long int *i)
 {
 	if (str == NULL || i == NULL)
 		return ;
