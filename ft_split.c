@@ -12,70 +12,77 @@
 
 #include "libft.h"
 
-static int	get_splits(const char *s, char c)
+static int	word_count(char *str, int c)
 {
-	int	counter;
+	int	word_count;
+	int	was_word;
 
-	counter = 0;
-	while (*s)
+	while (*str)
 	{
-		if (*s == c)
-			counter++;
-		s++;
+		if (*str == c && was_word)
+		{
+			word_count++;
+			was_word = 0;
+		}
+		if (*str != c && !was_word)
+			was_word = 1;
+		str++;
 	}
-	return (counter);
 }
 
-static int	len_substr(const char *s, int c)
+static int	make_split(int st, int end, char *str, char **strlist)
 {
-	int	counter;
+	int	i;
 
-	counter = 0;
-	while (*s && *s == c)
-		s++;
-	while (*s && *s != c)
+	*strlist = (char *)malloc(sizeof(char) * (end - st + 1));
+	if (!(*strlist))
+		return (0);
+	i = 0;
+	while (st < end)
 	{
-		counter++;
-		s++;
+		(*strlist)[i] = str[st];
+		i++;
+		st++;
 	}
-	return (counter);
+	return (1);
 }
 
-char	**ft_split_helper(char const *s, char c, char **arr, int len)
+static void	*free_all(char **str, int spl_count)
 {
-	int		i;
-	int		j;
-	int		len_sub;
+	int	i;
 
 	i = 0;
-	while (i < len)
+	while (i < spl_count)
 	{
-		len_sub = len_substr(s, c);
-		arr[i] = (char *) malloc(sizeof(char) * len_sub + 1);
-		j = 0;
-		while (*s && *s != c)
-		{
-			arr[i][j] = *s;
-			s++;
-		j++;
-		}
-		arr[i][j] = '\0';
+		free(str[i]);
 		i++;
-		s++;
 	}
-	arr[i] = (void *) 0;
-	return (arr);
+	free(str);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char	**arr;
-	int		len;
+	char	**res;
+	int		spl_count;
+	int		i;
+	int		j;
 
-	len = get_splits(s, c);
-	arr = (char **) malloc(sizeof(char *) * len + 1);
-	if (!s)
-		return ((void *) 0);
-	arr = ft_split_helper(s, c, arr, len);
-	return (arr);
+	spc = 0;
+	i = 0;
+	j = 0;
+	res = (char **)malloc((char *) * (word_count(s, c) + 1));
+	while (s[i])
+	{
+		if (s[i] == c)
+		{
+			suc = make_split(j, i, s, &res[spl_count]);
+			if (!suc)
+				return (free_all(res, spl_count));
+			j = i;
+			spl_count++;
+		}
+		i++;
+	}
+	res[spl_count] = NULL;
+	return (res);
 }
