@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:10:26 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:10:27 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/04 18:25:19 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		while (needle[j] == haystack[i + j] && i + j < len && needle[j])
 			j++;
 		if (j == nlen)
-			return (haystack + i);
+			return ((char *)(haystack + i));
 		i++;
 	}
 	return (NULL);

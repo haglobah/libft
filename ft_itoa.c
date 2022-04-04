@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:05:54 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:05:55 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/04 19:59:23 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ static int	numlen(int n)
 	int	numlen;
 
 	numlen = 0;
-	while(n)
+	if (n < 0)
+	{
+		numlen++;
+		n = -n;
+	}
+	while (n)
 	{
 		n /= 10;
 		numlen++;
@@ -25,45 +30,46 @@ static int	numlen(int n)
 	return (numlen);
 }
 
-static int	ft_pow(int n, int exp)
+static char	*ft_gen(char *rtn, long nbr, int len, int isneg)
 {
-	int	res;
-
-	if (exp == 0)
-		return (1);
-	res = n;
-	while (exp > 1)
+	if (nbr != 0)
+		rtn = malloc(sizeof(char) * (len + 1));
+	else
+		return (rtn = ft_strdup("0"));
+	if (!rtn)
+		return (0);
+	isneg = 0;
+	if (nbr < 0)
 	{
-		res *= n;
-		exp--;
+		isneg++;
+		nbr = -nbr;
 	}
-	return (res);
+	rtn[len] = '\0';
+	while (--len)
+	{
+		rtn[len] = (nbr % 10) + '0';
+		nbr /= 10;
+	}
+	if (isneg == 1)
+		rtn[0] = '-';
+	else
+		rtn[0] = (nbr % 10) + '0';
+	return (rtn);
 }
 
 char	*ft_itoa(int n)
 {
-	long	num;
-	char	*s;
-	int		div;
-	int		i;
+	int		len;
+	char	*rtn;
+	long	nbr;
+	int		isneg;
 
-	i = 0;
-	num = n;
-	s = malloc(sizeof(char) * (numlen(num) + 1));
-	if (!s)
-		return (NULL);
-	if (num < 0)
-	{
-		s[i++] = '-';
-		num = -num;
-	}
-	div = ft_pow(10, numlen(num) - 1);
-	while (div > 0)
-	{
-		s[i++] = num / div + '0';
-		num = num % div;
-		div = div / 10;
-	}
-	s[i] = '\0';
-	return (s);
+	nbr = n;
+	rtn = NULL;
+	len = numlen(nbr);
+	isneg = 0;
+	rtn = ft_gen(rtn, nbr, len, isneg);
+	if (!rtn)
+		return (0);
+	return (rtn);
 }
