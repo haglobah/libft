@@ -15,17 +15,10 @@
 void	*ft_calloc(size_t count, size_t size)
 {
 	char	*spc;
-	size_t	i;
 
-	i = 0;
-	if (count <= 0 || size <= 0)
-		return (NULL);
 	spc = malloc(count * size);
 	if (!spc)
 		return (NULL);
-	while (i < count)
-	{
-		spc[i++] = 0;
-	}
-	return (spc);
+	ft_bzero(spc, count * size);
+	return ((void *)spc);
 }

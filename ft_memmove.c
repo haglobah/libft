@@ -16,23 +16,18 @@ static void	cp_l2r(char *dst, const char *src, size_t n)
 {
 	size_t	i;
 
-	i = 0;
-	while (i < n)
-	{
+	i = -1;
+	while (++i < n)
 		dst[i] = src[i];
-		i++;
-	}
 }
 
 static void	cp_r2l(char *dst, const char *src, size_t n)
 {
-	while (n)
-	{
-		dst[n - 1] = src[n - 1];
-		n--;
-	}
+	while (--n)
+		dst[n] = src[n];
 }
 
+//WTF src&dst checkup should be ||.
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	char	*d_src;
@@ -40,13 +35,13 @@ void	*ft_memmove(void *dst, const void *src, size_t n)
 
 	d_src = (char *) src;
 	d_dst = (char *) dst;
+	if (n == 0)
+		return (dst);
+	if (src == NULL && dst == NULL)
+		return (NULL);
 	if (src < dst)
-	{
 		cp_r2l(d_dst, d_src, n);
-	}
 	else
-	{
 		cp_l2r(d_dst, d_src, n);
-	}
 	return (dst);
 }

@@ -60,5 +60,6 @@ char	*ft_strtrim(char const *to_trim, char const *tr_set)
 	res = cpy;
 	while (st < end)
 		*cpy++ = *st++;
+	*cpy = '\0';
 	return (res);
 }

@@ -26,7 +26,7 @@ static int	word_count(char const *str, int c)
 			word_count++;
 			was_word = 0;
 		}
-		if (*str != c && !was_word)
+		else if (*str != c && !was_word)
 			was_word = 1;
 		str++;
 	}
