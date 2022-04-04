@@ -17,6 +17,8 @@ static int	word_count(char const *str, int c)
 	int	word_count;
 	int	was_word;
 
+	word_count = 0;
+	was_word = 0;
 	while (*str)
 	{
 		if (*str == c && was_word)
