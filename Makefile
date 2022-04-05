@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 19:11:41 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/03/28 19:11:42 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/04/05 14:41:13 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,6 @@ re: fclean all
 norm:
 	norminette *.c *.h
 
-bonus: $(SRC) $(BONUS)
-	$(CC) $(CFLAGS) -c $(BONUS)
-	ar rcs $(NAME) $(BOB)
+#bonus: $(SRC) $(BONUS)
+#	$(CC) $(CFLAGS) -c $(BONUS)
+#	ar rcs $(NAME) $(BOB)

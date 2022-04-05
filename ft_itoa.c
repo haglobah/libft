@@ -6,13 +6,13 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:05:54 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/04 19:59:23 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:32:29 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	numlen(int n)
+static int	numlen(long n)
 {
 	int	numlen;
 
@@ -30,46 +30,46 @@ static int	numlen(int n)
 	return (numlen);
 }
 
-static char	*ft_gen(char *rtn, long nbr, int len, int isneg)
+static char	*ft_gena(char *res, long num, int len, int isneg)
 {
-	if (nbr != 0)
-		rtn = malloc(sizeof(char) * (len + 1));
+	if (num != 0)
+		res = malloc(sizeof(char) * (len + 1));
 	else
-		return (rtn = ft_strdup("0"));
-	if (!rtn)
+		return (res = ft_strdup("0"));
+	if (!res)
 		return (0);
 	isneg = 0;
-	if (nbr < 0)
+	if (num < 0)
 	{
 		isneg++;
-		nbr = -nbr;
+		num = -num;
 	}
-	rtn[len] = '\0';
+	res[len] = '\0';
 	while (--len)
 	{
-		rtn[len] = (nbr % 10) + '0';
-		nbr /= 10;
+		res[len] = (num % 10) + '0';
+		num /= 10;
 	}
 	if (isneg == 1)
-		rtn[0] = '-';
+		res[0] = '-';
 	else
-		rtn[0] = (nbr % 10) + '0';
-	return (rtn);
+		res[0] = (num % 10) + '0';
+	return (res);
 }
 
 char	*ft_itoa(int n)
 {
 	int		len;
-	char	*rtn;
-	long	nbr;
+	char	*res;
+	long	num;
 	int		isneg;
 
-	nbr = n;
-	rtn = NULL;
-	len = numlen(nbr);
+	num = n;
+	res = NULL;
+	len = numlen(num);
 	isneg = 0;
-	rtn = ft_gen(rtn, nbr, len, isneg);
-	if (!rtn)
+	res = ft_gena(res, num, len, isneg);
+	if (!res)
 		return (0);
-	return (rtn);
+	return (res);
 }

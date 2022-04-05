@@ -6,13 +6,14 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:08:29 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/03/28 19:08:29 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:29:58 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
-static int	word_count(char const *str, int c)
+static int	num_words(char const *str, int c)
 {
 	int	word_count;
 	int	was_word;
@@ -30,25 +31,19 @@ static int	word_count(char const *str, int c)
 			was_word = 1;
 		str++;
 	}
+	if (was_word)
+		word_count++;
 	return (word_count);
 }
 
-static int	make_split(int st, int end, char const *str, char **strlist)
+static int	wordlen(char const *str, int delim)
 {
-	int	i;
+	int	wlen;
 
-	*strlist = (char *)malloc(sizeof(char) * (end - st + 1));
-	if (!(*strlist))
-		return (0);
-	i = 0;
-	while (st < end)
-	{
-		(*strlist)[i] = str[st];
-		i++;
-		st++;
-	}
-	(*strlist)[i] = '\0';
-	return (1);
+	wlen = 0;
+	while (str[wlen] && str[wlen] != delim)
+		wlen++;
+	return (wlen);
 }
 
 static void	*free_all(char **str, int spl_count)
@@ -68,25 +63,37 @@ static void	*free_all(char **str, int spl_count)
 char	**ft_split(char const *s, char c)
 {
 	char	**res;
-	int		spl_count;
-	int		i;
-	int		j;
+	int		words;
+	int		chr;
+	int		word_count;
 
-	spl_count = 0;
-	i = 0;
-	j = 0;
-	res = (char **)malloc(sizeof(char *) * (word_count(s, c) + 1));
-	while (s[i])
+	words = num_words(s, c);
+	res = (char **)malloc(sizeof(char *) * (words + 1));
+	if (!res)
+		return (NULL);
+	chr = 0;
+	word_count = 0;
+	while (word_count < words)
 	{
-		if (s[i] == c)
-		{
-			if (!make_split(j, i, s, &res[spl_count]))
-				return (free_all(res, spl_count));
-			j = i;
-			spl_count++;
-		}
-		i++;
+		while (s[chr] && s[chr] == c)
+			chr++;
+		res[word_count] = ft_substr(s, chr, wordlen(s + chr, c));
+		if (!res[word_count])
+			return (free_all(res, word_count - 1));
+		chr += wordlen(s + chr, c);
+		word_count++;
 	}
-	res[spl_count] = NULL;
+	res[words] = NULL;
 	return (res);
+}
+
+int main(void)
+{
+	char str[] = "        ";
+	char **res;
+
+	res = NULL;
+	res = ft_split(str, ' ');
+	printf("%s", *res);
+	printf("%s", *++res);
 }
