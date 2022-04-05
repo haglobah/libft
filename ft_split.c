@@ -6,12 +6,11 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:08:29 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/05 16:29:58 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:36:07 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int	num_words(char const *str, int c)
 {
@@ -85,15 +84,4 @@ char	**ft_split(char const *s, char c)
 	}
 	res[words] = NULL;
 	return (res);
-}
-
-int main(void)
-{
-	char str[] = "        ";
-	char **res;
-
-	res = NULL;
-	res = ft_split(str, ' ');
-	printf("%s", *res);
-	printf("%s", *++res);
 }
