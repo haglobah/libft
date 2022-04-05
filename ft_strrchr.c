@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:10:32 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/04 18:56:45 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/05 16:41:52 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	i = -1;
 	while (s[++i])
 		;
-	if ('\0' == c)
+	if ('\0' == (char)c)
 		return ((char *)(s + i));
 	while (--i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)(s + i));
 	}
 	return (NULL);
