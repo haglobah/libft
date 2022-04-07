@@ -45,12 +45,12 @@ static int	wordlen(char const *str, int delim)
 	return (wlen);
 }
 
-static void	*free_all(char **str, int words)
+static void	*free_all(char **str, int words_created_so_far)
 {
 	int	i;
 
 	i = 0;
-	while (i < words)
+	while (i < words_created_so_far)
 	{
 		free(str[i]);
 		i++;

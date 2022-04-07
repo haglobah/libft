@@ -30,7 +30,7 @@ static void	cp_r2l(char *dst, const char *src, size_t n)
 	}
 }
 
-//WTF src&dst checkup should be ||.
+//WTF src&dst checkup should be (!src || !dst).
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
 	char	*d_src;
