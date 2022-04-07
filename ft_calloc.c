@@ -14,11 +14,11 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	char	*spc;
+	void	*spc;
 
 	spc = malloc(count * size);
 	if (!spc)
 		return (NULL);
 	ft_bzero(spc, count * size);
-	return ((void *)spc);
+	return (spc);
 }
