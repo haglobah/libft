@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:05:54 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/05 16:32:29 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/08 12:14:00 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	numlen(long n)
 static char	*ft_gena(char *res, long num, int len, int isneg)
 {
 	if (num != 0)
-		res = malloc(sizeof(char) * (len + 1));
+		res = (char *)malloc(sizeof(char) * (len + 1));
 	else
 		return (res = ft_strdup("0"));
 	if (!res)

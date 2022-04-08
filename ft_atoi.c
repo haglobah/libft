@@ -6,13 +6,13 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:03:13 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/04 18:17:23 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/08 12:50:02 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	ft_skipwhite(const char *str, long int *i)
+static void	ft_skipwhite(const char *str, long long int *i)
 {
 	if (str == NULL || i == NULL)
 		return ;
@@ -23,9 +23,9 @@ static void	ft_skipwhite(const char *str, long int *i)
 
 int	ft_atoi(const char *a)
 {
-	long	i;
-	long	nbr;
-	int		isneg;
+	long long	i;
+	long long	nbr;
+	int			isneg;
 
 	i = 0;
 	nbr = 0;
@@ -41,6 +41,10 @@ int	ft_atoi(const char *a)
 	while (a[i] != '\0' && ft_isdigit(a[i]))
 		nbr = (nbr * 10) + (a[i++] - '0');
 	if (isneg)
-		return (-nbr);
+		nbr = -nbr;
+	if (nbr / 10 > 922337203685477580 && nbr % 10 > 7)
+		return (-1);
+	if (nbr / 10 < -922337203685477580 && nbr % 10 > 8)
+		return (0);
 	return (nbr);
 }

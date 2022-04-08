@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:10:52 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/05 16:50:01 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/08 11:34:50 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	slen;
 
+	if (!s)
+		return (NULL);
 	slen = (size_t)ft_strlen(s);
 	if (start > slen)
 		return (ft_strdup(""));

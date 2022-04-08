@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 12:18:29 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/04 12:18:29 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/08 12:38:37 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*tmp_el;
 	t_list	*res;
 
+	if (!lst)
+		return (NULL);
 	llen = ft_lstsize(lst);
 	new_lst = (t_list *)malloc(sizeof(t_list) * (llen + 1));
 	if (!new_lst)

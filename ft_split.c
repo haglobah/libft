@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:08:29 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/05 16:36:07 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/08 11:37:30 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ char	**ft_split(char const *s, char c)
 	int		chr;
 	int		word_count;
 
+	if (!s)
+		return (NULL);
 	words = num_words(s, c);
 	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!res)
