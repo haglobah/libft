@@ -6,11 +6,11 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 19:11:41 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/04/08 11:43:45 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/04/09 12:33:23 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC=gcc
+CC=cc
 CFLAGS=-Wall -Werror -Wextra
 NAME=libft.a
 
@@ -31,7 +31,7 @@ all: $(NAME)
 $(NAME): objects
 	ar rcs $(NAME) $(SOBS)
 
-objects: $(SRC)
+objects:
 	$(CC) $(CFLAGS) -c $(SRC)
 
 clean:
@@ -45,8 +45,8 @@ re: fclean all
 norm:
 	norminette *.c *.h
 
-bonus: $(SRC) $(BONUS)
-	$(CC) $(CFLAGS) -c $(BONUS)
-	ar rcs $(NAME) $(BOBS)
+bonus: 
+	$(CC) $(CFLAGS) -c $(SRC) $(BONUS)
+	ar rcs $(NAME) $(SOBS) $(BOBS)
 
-.PHONY:	all bonus clean fclean re
+.PHONY:	all bonus clean fclean re norm
