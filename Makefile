@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 19:11:41 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/04/09 12:33:23 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/04/09 17:03:24 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,10 +28,10 @@ BOBS=$(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): objects
-	ar rcs $(NAME) $(SOBS)
+$(NAME): $(SOBS)
+	ar rcs $@ $^
 
-objects:
+$(SOBS):
 	$(CC) $(CFLAGS) -c $(SRC)
 
 clean:
@@ -45,7 +45,7 @@ re: fclean all
 norm:
 	norminette *.c *.h
 
-bonus: 
+bonus:
 	$(CC) $(CFLAGS) -c $(SRC) $(BONUS)
 	ar rcs $(NAME) $(SOBS) $(BOBS)
 
