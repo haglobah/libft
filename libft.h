@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:11:31 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/08 11:48:46 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:47:45 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,9 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+// ADDITIONS
+int		ft_numlen(long long n, int base);
+void	ft_puthex(uintptr_t num, int to_upper);
 
 #endif
