@@ -17,6 +17,8 @@ int	ft_numlen(long long n, int base)
 	int	numlen;
 
 	numlen = 0;
+	if (n == 0)
+		return (1);
 	if (n < 0)
 	{
 		numlen++;
