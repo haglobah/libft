@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:11:31 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/12 16:47:45 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/02 15:18:33 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include "ft_printf.h"
 
 void	ft_bzero(void *s, size_t n);
 int		ft_isprint(int c);
@@ -67,7 +68,6 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // ADDITIONS
-int		ft_numlen(long long n, int base);
 void	ft_puthex(uintptr_t num, int to_upper);
 
 #endif
