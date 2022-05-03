@@ -66,6 +66,12 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+int		ft_lstlen(t_list *lst);
+void	ft_lstcpy(t_list *orig, t_list **place);
+//t_list	ft_push(t_list stack, void *elem);
+void	ft_push1(t_list **stack, void *elem);
+//t_list	ft_pop(t_list stack);
+t_list	*ft_pop1(t_list **stack);
 
 // ADDITIONS
 void	ft_puthex(uintptr_t num, int to_upper);
