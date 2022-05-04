@@ -24,7 +24,7 @@ SRC=ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 SOBS=$(SRC:.c=.o)
 
 BONUS=ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-	ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lst.c ft_stack.c
+	ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lst.c ft_stack.c ft_li1.c ft_li2.c ft_limem.c
 BOBS=$(BONUS:.c=.o)
 
 all: $(NAME)

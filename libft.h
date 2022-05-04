@@ -57,6 +57,9 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+void	*ft_id(void *el);
+void	ft_nodel(void *el);
+
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int		ft_lstsize(t_list *lst);
@@ -72,6 +75,28 @@ void	ft_lstcpy(t_list *orig, t_list **place);
 void	ft_push1(t_list **stack, void *elem);
 //t_list	ft_pop(t_list stack);
 t_list	*ft_pop1(t_list **stack);
+
+typedef struct s_li
+{
+	int			val;
+	struct s_li	*next;
+}	t_li;
+
+int	ft_idi(int i);
+void	ft_nodeli(int i);
+
+t_li	*ft_lielem(int val);
+t_li	*ft_licons(t_li *li1, int *li2);
+void	ft_li_prep(t_li **li, t_li *new);
+int		ft_lilen(t_li *li);
+t_li	*ft_lilast(t_li *li);
+void	ft_li_app(t_li **li, t_list *new);
+void	ft_lidelone(t_li *li, void (*del)(int));
+void	ft_liclear(t_li **li, void (*del)(int));
+void	ft_liiter(t_li *li, void (*f)(int));
+t_li	*ft_limap(t_li *li, void *(*f)(int), void (*del)(int));
+t_li	*ft_licpy(t_li *orig);
+
 
 // ADDITIONS
 void	ft_puthex(uintptr_t num, int to_upper);
