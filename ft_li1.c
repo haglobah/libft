@@ -33,7 +33,7 @@ t_li	*ft_licons(t_li *li1, t_li *li2)
 		return (li2);
 	if (!li2)
 		return (li1);
-	while (li1)
+	while (li1->next)
 	{
 		li1 = li1->next;
 	}
