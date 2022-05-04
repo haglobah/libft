@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 11:24:50 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/04 11:25:10 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:42:40 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,32 @@ int	ft_idi(int i)
 
 void	ft_nodeli(int i)
 {
+	int	n;
+
+	n = i;
 	return ;
 }
 
 void	ft_lidelone(t_li *li, void (*del)(int))
 {
-	if (!lst)
+	if (!li)
 		return ;
 	if (del)
-		(*del)(lst->val);
-	free(lst);
+		(*del)(li->val);
+	free(li);
 }
 
 void	ft_liclear(t_li **li, void (*del)(int))
 {
-	t_list	*tmp;
+	t_li	*tmp;
 
-	if (!lst || !del)
+	if (!li || !del)
 		return ;
-	while (*lst)
+	while (*li)
 	{
-		tmp = (*lst)->next;
-		ft_lidelone(*lst, del);
-		*lst = tmp;
+		tmp = (*li)->next;
+		ft_lidelone(*li, del);
+		*li = tmp;
 	}
 }
 

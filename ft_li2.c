@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 11:24:50 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/04 11:25:10 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:41:03 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,37 +25,47 @@ int	ft_lilen(t_li *lst)
 	return (len);
 }
 
+t_li	*ft_liptolast(t_li *li)
+{
+	if (!li)
+		return (li);
+	if (!li->next)
+		return (li);
+	while (li->next->next)
+		li = li->next;
+	return (li);
+}
+
 void	ft_liiter(t_li *li, void (*f)(int))
 {
-	if (!lst || !f)
+	if (!li || !f)
 		return ;
-	while (lst)
+	while (li)
 	{
-		(*f)(lst->val);
-		lst = lst->next;
+		(*f)(li->val);
+		li = li->next;
 	}
 }
 
-t_li	*ft_limap(t_li *li, void *(*f)(int), void (*del)(int))
+t_li	*ft_limap(t_li *li, int (*f)(int), void (*del)(int))
 {
-	t_list	*new;
-	t_list	*head;
+	t_li	*new;
+	t_li	*head;
 
-	if (!lst)
+	if (!li)
 		return (NULL);
 	head = NULL;
-	while (lst)
+	while (li)
 	{
-		new = ft_lielem((*f)(lst->val));
+		new = ft_lielem((*f)(li->val));
 		if (!new)
 		{
-			ft_liclear(&lst, del);
+			ft_liclear(&li, del);
 			new = NULL;
 			return (new);
 		}
 		ft_li_app(&head, new);
-		lst = lst->next;
+		li = li->next;
 	}
 	return (head);
 }
-

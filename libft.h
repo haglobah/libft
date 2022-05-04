@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:11:31 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/02 15:18:33 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/04 13:13:22 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,12 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+typedef struct s_li
+{
+	int			val;
+	struct s_li	*next;
+}	t_li;
+
 void	*ft_id(void *el);
 void	ft_nodel(void *el);
 
@@ -71,33 +77,37 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 int		ft_lstlen(t_list *lst);
 void	ft_lstcpy(t_list *orig, t_list **place);
-//t_list	ft_push(t_list stack, void *elem);
+
+//Stacks
 void	ft_push1(t_list **stack, void *elem);
-//t_list	ft_pop(t_list stack);
 t_list	*ft_pop1(t_list **stack);
+void	ft_pushi(t_li **stack, t_li *elem);
+int	ft_popi(t_li **stack);
 
-typedef struct s_li
-{
-	int			val;
-	struct s_li	*next;
-}	t_li;
 
-int	ft_idi(int i);
+//LIST_OF(int)
+int		ft_idi(int i);
 void	ft_nodeli(int i);
 
 t_li	*ft_lielem(int val);
-t_li	*ft_licons(t_li *li1, int *li2);
+t_li	*ft_licons(t_li *li1, t_li *li2);
 void	ft_li_prep(t_li **li, t_li *new);
 int		ft_lilen(t_li *li);
+t_li	*ft_liptolast(t_li *li);
 t_li	*ft_lilast(t_li *li);
-void	ft_li_app(t_li **li, t_list *new);
+void	ft_li_app(t_li **li, t_li *new);
 void	ft_lidelone(t_li *li, void (*del)(int));
 void	ft_liclear(t_li **li, void (*del)(int));
 void	ft_liiter(t_li *li, void (*f)(int));
-t_li	*ft_limap(t_li *li, void *(*f)(int), void (*del)(int));
+t_li	*ft_limap(t_li *li, int (*f)(int), void (*del)(int));
 t_li	*ft_licpy(t_li *orig);
 
 // ADDITIONS
+// math.
+int		ft_abs(int n);
+int		ft_min(int a, int b);
+int		ft_max(int a, int b);
+//other
 void	ft_puthex(uintptr_t num, int to_upper);
 
 #endif
