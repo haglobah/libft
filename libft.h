@@ -97,7 +97,6 @@ void	ft_liiter(t_li *li, void (*f)(int));
 t_li	*ft_limap(t_li *li, void *(*f)(int), void (*del)(int));
 t_li	*ft_licpy(t_li *orig);
 
-
 // ADDITIONS
 void	ft_puthex(uintptr_t num, int to_upper);
 

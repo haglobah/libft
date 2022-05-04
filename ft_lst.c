@@ -29,5 +29,5 @@ int	ft_lstlen(t_list *lst)
 
 void	ft_lstcpy(t_list *orig, t_list **place)
 {
-	*place = ft_lstmap(orig, NULL, NULL);
+	*place = ft_lstmap(orig, ft_id, ft_nodel);
 }
