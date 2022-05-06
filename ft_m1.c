@@ -6,13 +6,13 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 13:09:42 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/04 13:12:47 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/06 13:02:04 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_abs(int n)
+int	ft_abs(int n)
 {
 	if (n < 0)
 		return (-n);
@@ -20,7 +20,7 @@ int		ft_abs(int n)
 		return (n);
 }
 
-int		ft_min(int a, int b)
+int	ft_min(int a, int b)
 {
 	if (a < b)
 		return (a);
@@ -28,7 +28,7 @@ int		ft_min(int a, int b)
 		return (b);
 }
 
-int		ft_max(int a, int b)
+int	ft_max(int a, int b)
 {
 	if (a < b)
 		return (b);

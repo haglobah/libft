@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:31:18 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/04 13:40:21 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/06 13:01:44 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_pushi(t_li **stack, t_li *elem)
 
 int	ft_popi(t_li **stack)
 {
-	int	val;
+	int		val;
 	t_li	*head;
 
 	if (*stack == NULL)

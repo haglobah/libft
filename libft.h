@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:11:31 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/04 13:13:22 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/06 13:01:16 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ void	ft_lstcpy(t_list *orig, t_list **place);
 void	ft_push1(t_list **stack, void *elem);
 t_list	*ft_pop1(t_list **stack);
 void	ft_pushi(t_li **stack, t_li *elem);
-int	ft_popi(t_li **stack);
-
+int		ft_popi(t_li **stack);
 
 //LIST_OF(int)
 int		ft_idi(int i);
@@ -91,6 +90,7 @@ void	ft_nodeli(int i);
 
 t_li	*ft_lielem(int val);
 t_li	*ft_licons(t_li *li1, t_li *li2);
+t_li	*ft_licar(t_li *li1);
 void	ft_li_prep(t_li **li, t_li *new);
 int		ft_lilen(t_li *li);
 t_li	*ft_liptolast(t_li *li);
@@ -101,6 +101,25 @@ void	ft_liclear(t_li **li, void (*del)(int));
 void	ft_liiter(t_li *li, void (*f)(int));
 t_li	*ft_limap(t_li *li, int (*f)(int), void (*del)(int));
 t_li	*ft_licpy(t_li *orig);
+
+// iQueue
+typedef struct s_iqueue
+{
+	int				front;
+	int				rear;
+	int				size;
+	unsigned int	capacity;
+	int				*arr;
+}	t_iq;
+
+t_iq	*ft_mkiq(unsigned int capacity);
+void	ft_deliq(t_iq *queue);
+int		ft_iqisfull(t_iq *queue);
+int		ft_iqismt(t_iq *queue);
+void	ft_iqenq(t_iq *queue, int item);
+int		ft_iqdeq(t_iq *queue);
+int		ft_iqfront(t_iq *queue);
+int		ft_iqrear(t_iq *queue);
 
 // ADDITIONS
 // math.
