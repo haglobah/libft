@@ -29,3 +29,20 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	}
 	return (0);
 }
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	unsigned char	*u1;
+	unsigned char	*u2;
+
+	u1 = (unsigned char *)s1;
+	u2 = (unsigned char *)s2;
+	while (*u1 && *u2)
+	{
+		if (*u1 != *u2)
+			return (*u1 - *u2);
+		u1++;
+		u2++;
+	}
+	return (*u1 - *u2);
+}

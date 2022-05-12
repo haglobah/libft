@@ -36,6 +36,7 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
+int		ft_strcmp(char *s1, char *s2);
 int		ft_atoi(const char *a);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
