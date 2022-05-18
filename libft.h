@@ -130,4 +130,8 @@ int		ft_max(int a, int b);
 //other
 void	ft_puthex(uintptr_t num, int to_upper);
 
+//Strings
+int		ft_strisin(char *needle, char **box);
+int		ft_striseq(char *s1, char *s2);
+
 #endif
