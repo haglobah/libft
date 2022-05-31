@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 11:31:18 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/06 13:01:44 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/30 18:09:41 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,13 @@ t_list	*ft_pop1(t_list **stack)
 void	ft_pushi(t_li **stack, t_li *elem)
 {
 	ft_li_prep(stack, elem);
+}
+
+int	ft_peeki(t_li **stack)
+{
+	if ((*stack) == NULL)
+		return (123456789);
+	return ((*stack)->val);
 }
 
 int	ft_popi(t_li **stack)

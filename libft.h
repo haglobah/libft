@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:11:31 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/05/06 13:01:16 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/05/19 12:17:20 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void	ft_lstcpy(t_list *orig, t_list **place);
 void	ft_push1(t_list **stack, void *elem);
 t_list	*ft_pop1(t_list **stack);
 void	ft_pushi(t_li **stack, t_li *elem);
+int		ft_peeki(t_li **stack);
 int		ft_popi(t_li **stack);
 
 //LIST_OF(int)
@@ -132,6 +133,7 @@ void	ft_puthex(uintptr_t num, int to_upper);
 
 //Strings
 int		ft_strisin(char *needle, char **box);
+int		ft_cisins(char c, char *str);
 int		ft_striseq(char *s1, char *s2);
 
 #endif
