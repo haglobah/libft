@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 19:11:41 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/05/31 12:17:42 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/05/31 12:39:50 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,12 +20,10 @@ SRC=ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 	ft_calloc.c ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c \
 	ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	ft_memcmp.c ft_strnstr.c ft_puthex.c ft_printf.c ft_printh.c ft_printn.c \
-	ft_prints.c ft_str.c
+	ft_prints.c ft_str.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c \
+	ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lst.c ft_stack.c ft_li1.c ft_li2.c \
+	ft_limem.c
 SOBS=$(SRC:.c=.o)
-
-BONUS=ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-	ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lst.c ft_stack.c ft_li1.c ft_li2.c ft_limem.c
-BOBS=$(BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -47,9 +45,4 @@ re: fclean all
 norm:
 	norminette *.c *.h
 
-bonus:
-	@$(CC) $(CFLAGS) -c $(SRC) $(BONUS)
-	@ar rcs $(NAME) $(SOBS) $(BOBS)
-	@echo "whole libft ready."
-
-.PHONY:	all bonus clean fclean re norm
+.PHONY:	all clean fclean re norm
