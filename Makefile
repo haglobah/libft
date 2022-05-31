@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 19:11:41 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/05/31 12:39:50 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/05/31 12:54:21 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ all: $(NAME)
 
 $(NAME): $(SOBS)
 	@ar rcs $@ $^
-	echo "libft ready! \n"
+	@echo "libft ready! \n"
 
 $(SOBS):
 	@$(CC) $(CFLAGS) -c $(SRC)
