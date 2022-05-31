@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 19:11:41 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/05/02 15:16:02 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/05/31 12:17:42 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,10 +30,11 @@ BOBS=$(BONUS:.c=.o)
 all: $(NAME)
 
 $(NAME): $(SOBS)
-	ar rcs $@ $^
+	@ar rcs $@ $^
+	echo "libft ready! \n"
 
 $(SOBS):
-	$(CC) $(CFLAGS) -c $(SRC)
+	@$(CC) $(CFLAGS) -c $(SRC)
 
 clean:
 	rm -f $(SOBS) $(BOBS)
@@ -47,7 +48,8 @@ norm:
 	norminette *.c *.h
 
 bonus:
-	$(CC) $(CFLAGS) -c $(SRC) $(BONUS)
-	ar rcs $(NAME) $(SOBS) $(BOBS)
+	@$(CC) $(CFLAGS) -c $(SRC) $(BONUS)
+	@ar rcs $(NAME) $(SOBS) $(BOBS)
+	@echo "whole libft ready."
 
 .PHONY:	all bonus clean fclean re norm
