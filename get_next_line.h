@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 10:09:12 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/06/01 11:04:08 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/06/01 11:16:25 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+
+# define BUFFER_SIZE 42
 
 char		*get_next_line(int fd);
 size_t		gnl_strlen(const char *str);
