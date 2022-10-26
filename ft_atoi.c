@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:03:13 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/10/26 14:22:49 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:23:42 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ int	ft_atoi(const char *a)
 
 bool	ft_parse_int(const char *s, int *loc)
 {
-	int	i;
-	long long		num;
-	int				neg;
+	int			i;
+	long long	num;
+	int			neg;
 
 	num = 0;
 	i = 0;
