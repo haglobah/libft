@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:11:31 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/06/01 11:02:33 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:09:45 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdbool.h>
+# include <limits.h>
 # include "ft_printf.h"
 # include "get_next_line.h"
 
@@ -39,6 +41,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
 int		ft_strcmp(char *s1, char *s2);
 int		ft_atoi(const char *a);
+bool	ft_parse_int(const char *s, int *num);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);

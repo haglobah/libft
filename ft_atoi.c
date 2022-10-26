@@ -6,7 +6,7 @@
 /*   By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 19:03:13 by bhagenlo          #+#    #+#             */
-/*   Updated: 2022/04/09 12:22:57 by bhagenlo         ###   ########.fr       */
+/*   Updated: 2022/10/26 14:22:49 by bhagenlo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,25 @@ int	ft_atoi(const char *a)
 	if (isneg)
 		nbr = -nbr;
 	return (nbr);
+}
+
+bool	ft_parse_int(const char *s, int *loc)
+{
+	int	i;
+	long long		num;
+	int				neg;
+
+	num = 0;
+	i = 0;
+	neg = (s[i] == '-');
+	i += neg;
+	while (s[i] != '\0' && ft_isdigit(s[i]))
+	{
+		if (num > (((long)INT_MAX) + neg))
+			return (false);
+		num = (num * 10) + (s[i] - '0');
+		i++;
+	}
+	*loc = (int)(num * ((2 * neg) - 1));
+	return (i > neg && s[i] == '\0');
 }

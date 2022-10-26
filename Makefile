@@ -6,7 +6,7 @@
 #    By: bhagenlo <bhagenlo@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/28 19:11:41 by bhagenlo          #+#    #+#              #
-#    Updated: 2022/06/01 11:15:07 by bhagenlo         ###   ########.fr        #
+#    Updated: 2022/10/26 15:12:10 by bhagenlo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,11 +29,11 @@ SOBS=$(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(SOBS)
-	@ar rcs $@ $^
+$(NAME): $(SOBS) 
+	ar rcs $@ $^
 	@echo "libft ready!"
 
-$(SOBS):
+$(SOBS): libft.h
 	@$(CC) $(CFLAGS) -c $(SRC)
 
 clean:
