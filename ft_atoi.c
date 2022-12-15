@@ -63,11 +63,11 @@ bool	ft_parse_int(const char *s, int *loc)
 	i += neg;
 	while (s[i] != '\0' && ft_isdigit(s[i]))
 	{
-		if (num > (((long)INT_MAX) + neg))
-			return (false);
 		num = (num * 10) + (s[i] - '0');
+		if (num > (((long long)INT_MAX) + neg))
+			return (false);
 		i++;
 	}
-	*loc = (int)(num * ((2 * neg) - 1));
+	*loc = (int)(num * -((2 * neg) - 1));
 	return (i > neg && s[i] == '\0');
 }
