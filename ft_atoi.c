@@ -71,3 +71,4 @@ bool	ft_parse_int(const char *s, int *loc)
 	*loc = (int)(num * -((2 * neg) - 1));
 	return (i > neg && s[i] == '\0');
 }
+
